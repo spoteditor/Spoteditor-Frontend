@@ -1,4 +1,5 @@
 import MainLayout from '@/layouts/MainLayout';
+import RegisterLayout from '@/layouts/RegisterLayout';
 import DetailPage from '@/pages/detail';
 import HomePage from '@/pages/home';
 import Notice from '@/pages/notice';
@@ -8,6 +9,7 @@ import ProfileSetting from '@/pages/profile-setting';
 import MyLogs from '@/pages/profile/my-logs';
 import SavedLogs from '@/pages/profile/saved-logs';
 import SavedSpaces from '@/pages/profile/saved-spaces';
+import { RegisterDetail, SearchPage, SelectPage } from '@/pages/register';
 import Search from '@/pages/search';
 import { createBrowserRouter } from 'react-router-dom';
 
@@ -48,6 +50,14 @@ const router = createBrowserRouter([
         path: 'notice/:noticeId',
         element: <NoticeDetail />,
       },
+    ],
+  },
+  {
+    element: <RegisterLayout />,
+    children: [
+      { path: '/register/select', element: <SelectPage /> },
+      { path: '/register/search', element: <SearchPage /> },
+      { path: '/register/details', element: <RegisterDetail /> },
     ],
   },
 ]);
