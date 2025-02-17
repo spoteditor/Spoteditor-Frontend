@@ -14,7 +14,7 @@ module.exports = {
       },
       fontFamily: {
         pretendard: ['Pretendard', 'sans-serif'],
-        untitled: ['UntitledSansLight', 'sans-serif'],
+        untitled: ['Untitled Sans', 'sans-serif'],
       },
       fontSize: {
         '2xl': ['32px', { lineHeight: '130%' }],
