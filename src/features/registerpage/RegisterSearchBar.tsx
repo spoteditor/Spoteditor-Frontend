@@ -6,7 +6,7 @@ import React, { FormEvent, ForwardedRef, forwardRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 interface RegisterSearchBarProps {
-  to: string;
+  to?: string;
   onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
 }
 
@@ -15,18 +15,19 @@ const RegisterSearchBar = forwardRef(
     const navi = useNavigate();
     const handleGoBack = (e: React.MouseEvent) => {
       e.stopPropagation();
-      navi(to);
+      if (to) navi(to);
+      else navi(-1);
     };
 
     return (
       <form
-        className="border-b flex items-center mt-3 w-full"
+        className="border-b flex items-center w-full px-4 pt-3"
         onSubmit={onSubmit}
         onClick={() => navi(MAPS)}
       >
         <Button
           type="button"
-          className="px-4 [&_svg]:size-auto"
+          className="p-0 [&_svg]:size-auto"
           variant={'transparent'}
           onClick={handleGoBack}
         >
@@ -36,10 +37,10 @@ const RegisterSearchBar = forwardRef(
         <Input
           ref={ref}
           placeholder="장소를 검색해보세요."
-          className="placeholder:text-primary-300 text-text-lg font-medium"
+          className="h-full placeholder:text-primary-300 text-text-lg font-medium"
         />
 
-        <Button type="submit" className="px-4 [&_svg]:size-auto" variant={'transparent'}>
+        <Button type="submit" className="p-0 [&_svg]:size-auto" variant={'transparent'}>
           <Search />
         </Button>
       </form>

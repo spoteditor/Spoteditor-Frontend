@@ -32,26 +32,25 @@ const SelectPage = () => {
   const setCompanions = useRegisterStore((state) => state.setCompanions);
   const setFeelings = useRegisterStore((state) => state.setFeelings);
 
+  const handleGoBack = () => navi(-1);
+
   return (
     <div className="h-full flex flex-col px-4">
-      <header className="mt-3">
-        {/* 나중에 경로 수정 */}
-        <Link to={'/profile/1'}>
-          <ArrowLeft size={24} className="cursor-pointer" />
-        </Link>
+      <header className="pt-5">
+        <ArrowLeft size={24} className="cursor-pointer" onClick={handleGoBack} />
       </header>
 
       <main className="flex flex-col items-center justify-center grow ">
         {/* 제목 */}
-        <div className="flex flex-col items-center font-bold mt-5 mb-[25px] gap-[7px]">
-          <h3 className="text-md">어떤 하루인가요?</h3>
-          <p className="text-text-sm text-primary-300">여러개를 선택할 수 있어요.</p>
+        <div className="flex flex-col items-center mt-5 mb-[25px] gap-[7px]">
+          <h3 className="text-md font-bold">어떤 하루인가요?</h3>
+          <p className="text-text-sm text-primary-300 font-medium">여러개를 선택할 수 있어요.</p>
         </div>
 
         {/* 선택지 */}
         <div className="flex flex-col gap-5 grow">
           <div className="w-full">
-            <h5 className="text-text-xs font-bold py-2.5">누구와</h5>
+            <h5 className="text-text-sm font-bold py-2.5">누구와</h5>
             <div className="flex gap-2 flex-wrap">
               {WHO.map((who, idx) => (
                 <Button
@@ -69,7 +68,7 @@ const SelectPage = () => {
 
           {/* 장소 */}
           <div className="w-full">
-            <h5 className="text-text-xs font-bold py-2.5">어떤 느낌으로</h5>
+            <h5 className="text-text-sm font-bold py-2.5">어떤 느낌으로</h5>
             <div className="flex gap-2 flex-wrap">
               {WHERE.map((who, idx) => (
                 <Button
@@ -90,7 +89,7 @@ const SelectPage = () => {
       {/* 버튼 */}
       <div className="w-full flex flex-col items-center gap-[15px] mb-6">
         <Button
-          className="w-full"
+          className="w-full !text-text-sm text-gray-50"
           size={'xl'}
           disabled={!companions.length || !feelings.length}
           onClick={() => navi(REGISTER_SEARCH)}
@@ -98,7 +97,7 @@ const SelectPage = () => {
           다음
         </Button>
 
-        <p className="underline text-primary-300 text-text-sm font-medium">
+        <p className="underline text-primary-300 text-text-sm !font-medium">
           <Link to={REGISTER_SEARCH}>다음에 하기</Link>
         </p>
       </div>

@@ -1,10 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { REGISTER_DETAILS, REGISTER_SEARCH } from '@/constants/pathname';
 import RegisterSearchBar from '@/features/registerpage/RegisterSearchBar';
-import PlaceListDrawer from '@/features/registerpage/SearchPlacesDrawer';
+import SearchResultDrawer from '@/features/registerpage/SearchResultDrawer';
+import SelectedPlacePreview from '@/features/registerpage/SelectedPlacePreview';
 import { cn } from '@/lib/utils';
 import { useRegisterStore } from '@/store/registerStore';
-import { CircleX } from 'lucide-react';
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -65,20 +65,6 @@ const MapPage = () => {
       mapRef.current = new window.kakao.maps.Map(mapContainerRef.current, options);
       placeRef.current = new window.kakao.maps.services.Places();
       geoCoderRef.current = new window.kakao.maps.services.Geocoder();
-
-      // if (!address) {
-      //   console.log('주소 변환 실행');
-      //   if (geoCoderRef.current) {
-      //     geoCoderRef.current.coord2Address(lon, lat, (result, status: string) => {
-      //       if (status === window.kakao.maps.services.Status.OK) {
-      //         const address = result[0].address.address_name;
-      //         setAddress(address);
-      //       } else {
-      //         console.log('주소 변환 실패');
-      //       }
-      //     });
-      //   }
-      // }
     } catch (error) {
       console.log('위치 정보 가져오기 실패');
     }
@@ -157,16 +143,8 @@ const MapPage = () => {
   return (
     <div className="h-full flex flex-col">
       <RegisterSearchBar ref={inputRef} onSubmit={handleSubmit} to={REGISTER_SEARCH} />
-      {selectedPlaces.length > 0 && (
-        <div className="px-4 py-[14px] bg-primary-50 text-text-sm font-medium flex gap-3">
-          {selectedPlaces.map((place, idx) => (
-            <span className="flex items-center gap-[3px] cursor-pointer" key={idx}>
-              {place.place_name}
-              <CircleX className="p-1" onClick={() => removeSelectedPlace(place)} />
-            </span>
-          ))}
-        </div>
-      )}
+      {selectedPlaces.length > 0 && <SelectedPlacePreview onRemove={removeSelectedPlace} />}
+
       {/* 지도 담을 영역 */}
       <div ref={mapContainerRef} className="w-full h-full relative">
         <Button
@@ -184,7 +162,7 @@ const MapPage = () => {
 
       {/* 장소 리스트 */}
       {!!places.length && (
-        <PlaceListDrawer
+        <SearchResultDrawer
           places={places}
           onPlaceClick={handlePlaceClick}
           isOpen={isOpen}
@@ -199,7 +177,7 @@ const MapPage = () => {
           onClick={() => navi(REGISTER_DETAILS)}
           disabled={!selectedPlaces.length}
         >
-          선택
+          다음
         </Button>
       </div>
     </div>

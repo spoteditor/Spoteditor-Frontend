@@ -47,7 +47,7 @@ const PlaceDetailFormItem = ({
             )}
           </div>
           <p className="flex items-center">
-            {place.place_name} <ChevronRight />
+            {place.place_name} <ChevronRight className="w-[1.2em] h-[1.2em]" />
           </p>
         </div>
 
@@ -79,7 +79,7 @@ const PlaceDetailFormItem = ({
       </Button>
 
       {imagePreviews && (
-        <div className="flex overflow-x-auto">
+        <div className="flex overflow-x-auto mb-2.5">
           {imagePreviews.map((previewURL, idx) => (
             <ImagePreviewItem
               key={previewURL}
@@ -105,8 +105,6 @@ const PlaceDetailFormItem = ({
         placeholder="내용을 입력해주세요. (최대 500자)"
         maxLength={500}
         ref={(el) => setRef(place.id, el!)}
-        // onClick={handleNavigateToWritePage}
-        // readOnly
       />
     </div>
   );

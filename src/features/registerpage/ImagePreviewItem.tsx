@@ -17,7 +17,7 @@ const ImagePreviewItem = ({ idx, imagePreview, onRemoveImage }: ImagePreviewItem
         className="h-[300px] object-cover p-0 "
       />
       <CircleX
-        className="stroke-primary-100 absolute top-2 right-2  cursor-pointer hover:fill-slate-50/50"
+        className="stroke-primary-300 fill-slate-100 stroke-1 absolute top-2 right-2  cursor-pointer hover:fill-slate-50/50"
         onClick={() => onRemoveImage(idx)}
       />
     </div>
