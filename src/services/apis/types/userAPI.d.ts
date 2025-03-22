@@ -24,7 +24,7 @@ export interface IUser {
   userId: number;
   name: string;
   instagramId: string;
-  imageUrl: string;
+  profileImage: { imageId: null; imageUrl: string };
   description: string;
   follower: number;
   following: number;

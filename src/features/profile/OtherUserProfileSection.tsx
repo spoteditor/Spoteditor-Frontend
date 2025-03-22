@@ -19,7 +19,7 @@ export default function OtherUserProfileSection({ userId }: OtherUserProfileSect
     <div className="flex items-center gap-2 py-[15px]">
       <Link to={`/profile/${userId}`} className="flex items-center gap-2">
         <Avatar className="w-6 h-6">
-          <AvatarImage src={data?.imageUrl} alt="user Avatar" />
+          <AvatarImage src={data?.profileImage.imageUrl} alt="user Avatar" />
         </Avatar>
         <div className="flex items-center gap-1.5">
           <p className="font-semibold text-text-sm">{data?.name}</p>
