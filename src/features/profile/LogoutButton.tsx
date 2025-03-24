@@ -31,7 +31,7 @@ function LogoutButton() {
         <DialogClose asChild className="flex justify-end w-full">
           <div className="space-x-2">
             <Button variant="outline" size="sm" className="w-[80px]">
-              {t('logout.cancel')}
+              {t('button.cancel')}
             </Button>
             <LogoutConfirmButton />
           </div>

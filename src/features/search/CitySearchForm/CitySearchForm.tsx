@@ -142,7 +142,7 @@ function CitySearchForm() {
             type="submit"
             className="h-full font-medium text-white rounded-none bg-primary-950 text-text-sm hover:bg-primary-900"
           >
-            {t('searchForm.button')}
+            {t('button.search')}
           </Button>
           <AnimatePresence>
             {isDropBox ? (

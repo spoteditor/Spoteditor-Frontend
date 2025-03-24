@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useBlocker } from 'react-router-dom';
 import { UseFormReturn } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 export default function useUnsavedChangesWarning(form: UseFormReturn<any>) {
   const [isFormDirty, setIsFormDirty] = useState(false);
   const [proceedNavigation, setProceedNavigation] = useState(false);
+  const { t } = useTranslation();
 
   // 1. 폼 변경 감지
   useEffect(() => {
@@ -34,7 +36,7 @@ export default function useUnsavedChangesWarning(form: UseFormReturn<any>) {
   const blocker = useBlocker(({ currentLocation, nextLocation }) => {
     // 진행 여부 결정: 취소 시 false 반환
     if (isFormDirty && currentLocation.pathname !== nextLocation.pathname && !proceedNavigation) {
-      const confirmLeave = window.confirm('저장하지 않고 나가시겠습니까?');
+      const confirmLeave = window.confirm(`${t('alert.unsavedChanges')}`);
       if (confirmLeave) {
         setProceedNavigation(true); // 다음 useEffect에서 proceed 처리
         return false; // 진행 허용

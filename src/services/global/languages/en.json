@@ -1,4 +1,18 @@
 {
+  "alert": {
+    "unsavedChanges": "Are you sure you want to leave without saving?"
+  },
+  "button": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "search": "Search",
+    "deleting": "Deleting...",
+    "confirm": "OK"
+  },
+  "follow": {
+    "follower": "follower",
+    "following": "following"
+  },
   "home": {
     "intro": {
       "line1": "Nice to meet you!",
@@ -35,8 +49,7 @@
     "label": {
       "sido": "Where do you want to go?",
       "bname": "Search in more detail!"
-    },
-    "button": "Search"
+    }
   },
   "profile": {
     "viewProfile": "View Profile",
@@ -50,8 +63,7 @@
   },
   "logout": {
     "title": "Logout",
-    "message": "Are you sure you want to log out?",
-    "cancel": "Cancel"
+    "message": "Are you sure you want to log out?"
   },
   "myProfile": {
     "defaultBio": "A space to capture simple days and special moments ☕️\nFrom small daily joys to fleeting travel memories 🏞️",
@@ -67,8 +79,31 @@
       "noSavedPlacesDesc": "Explore logs and save places you're interested in!"
     }
   },
-  "follow": {
-    "follower": "follower",
-    "following": "following"
+  "profileSetting": {
+    "title": "Edit Profile",
+    "label": {
+      "name": "Nickname",
+      "description": "Profile Description",
+      "instagram": "Instagram"
+    },
+    "placeholder": {
+      "name": "Current nickname",
+      "description": "Enter your profile description"
+    },
+    "modal": {
+      "title": "Profile Saved",
+      "description": "Your updated profile information has been saved."
+    },
+    "delete": {
+      "trigger": "Delete Account",
+      "title": "Delete Account",
+      "description": "Deleting your account will permanently remove all your logs.\nAre you sure you want to delete your account?",
+      "successMessage": "Your account has been successfully deleted."
+    },
+    "account": {
+      "title": "Account Settings",
+      "deleteLabel": "Delete Account",
+      "description": "Deleting your account will not remove your logs.\nIf you want to remove logs, please delete them individually."
+    }
   }
 }

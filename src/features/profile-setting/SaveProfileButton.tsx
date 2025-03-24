@@ -7,6 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 interface SaveProfileButtonProps {
@@ -16,6 +17,7 @@ interface SaveProfileButtonProps {
 
 function SaveProfileButton({ userId, onTrigger }: SaveProfileButtonProps) {
   const nav = useNavigate();
+  const { t } = useTranslation();
   const onUpdateClick = () => {
     nav(`/profile/${userId}`);
   };
@@ -30,18 +32,20 @@ function SaveProfileButton({ userId, onTrigger }: SaveProfileButtonProps) {
           }}
           className="rounded-[6px] h-[42px] px-5"
         >
-          저장
+          {t('button.save')}
         </Button>
       </DialogTrigger>
       <DialogContent hideCloseButton className="web:w-[390px] mobile:w-[300px] p-6">
-        <DialogTitle className="w-full mb-2 section-heading">저장이 완료 되었습니다.</DialogTitle>
+        <DialogTitle className="w-full mb-2 section-heading">
+          {t('profileSetting.modal.title')}
+        </DialogTitle>
         <DialogDescription className="text-text-xs text-[#6D727D] text-start w-full mb-4">
-          수정된 프로필 정보가 저장되었습니다.
+          {t('profileSetting.modal.description')}
         </DialogDescription>
         <DialogClose asChild className="flex justify-end w-full">
           <div className="space-x-[15px]">
             <Button onClick={onUpdateClick} size="sm" className="w-[100px]">
-              확인
+              {t('button.confirm')}
             </Button>
           </div>
         </DialogClose>

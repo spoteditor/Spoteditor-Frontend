@@ -17,6 +17,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import Resizer from 'react-image-file-resizer';
+import { useTranslation } from 'react-i18next';
 
 export const resizeFile = (file: File): Promise<File> => {
   return new Promise((resolve) => {
@@ -47,6 +48,7 @@ const fetchPresignedUrl = async (file: File) => {
 
 function ProfileSetting() {
   const nav = useNavigate();
+  const { t } = useTranslation();
   const { user } = useUser('userOnly');
   const { file } = useProfileStore();
 
@@ -64,10 +66,7 @@ function ProfileSetting() {
   const { setIsFormDirty } = useUnsavedChangesWarning(form);
 
   const onSubmit = async (data: z.infer<typeof profileSettingSchema>) => {
-    console.log('폼 데이터', data);
     const { name, description, instagramId } = data;
-
-    console.log('useProfileStore', file);
     if (!file) return;
     const resizingFile = await resizeFile(file);
 
@@ -99,7 +98,9 @@ function ProfileSetting() {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col w-full">
             <ProfileSettingAvatar imageUrl={String(user?.profileImage.imageUrl)} />
-            <p className="mt-8 mb-4 font-bold text-text-lg web:text-text-2xl">프로필 편집</p>
+            <p className="mt-8 mb-4 font-bold text-text-lg web:text-text-2xl">
+              {t('profileSetting.title')}
+            </p>
             <ProfileSettingForm />
             <AccountSettings />
             <section className="flex justify-between mt-[50px]">
@@ -108,7 +109,7 @@ function ProfileSetting() {
                 variant="outline"
                 className="rounded-[6px] w-[120px] h-[42px]"
               >
-                취소
+                {t('button.cancel')}
               </Button>
               <SaveProfileButton userId={user?.userId!} onTrigger={handleSaveClick} />
             </section>

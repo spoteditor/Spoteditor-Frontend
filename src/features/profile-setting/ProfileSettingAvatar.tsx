@@ -49,7 +49,6 @@ export default function ProfileSettingAvatar({ imageUrl }: ProfileSettingAvatarP
       <article className="relative">
         <Avatar className="w-[100px] h-[100px] relative">
           <AvatarImage src={imagePreview} alt="프로필 이미지" />
-          <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <button
           type="button"

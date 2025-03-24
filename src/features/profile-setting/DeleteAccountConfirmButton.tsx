@@ -8,10 +8,12 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { useDeleteUser } from '@/hooks/mutations/user/useDeleteUser';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 function DeleteAccountConfirmButton() {
   const nav = useNavigate();
+  const { t } = useTranslation();
   const { isPending, isSuccess, mutate } = useDeleteUser();
 
   const onDeleteClick = () => {
@@ -21,26 +23,35 @@ function DeleteAccountConfirmButton() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="font-medium text-red-600 text-text-xs">삭제하기</button>
+        <button className="font-medium text-red-600 text-text-xs">
+          {t('profileSetting.delete.trigger')}
+        </button>
       </DialogTrigger>
       <DialogContent hideCloseButton className="w-[300px] web:w-[390px] p-6">
-        <DialogTitle className="w-full font-bold text-text-2xl">계정삭제</DialogTitle>
+        <DialogTitle className="w-full font-bold text-text-2xl">
+          {t('profileSetting.delete.title')}
+        </DialogTitle>
         <DialogDescription className="mt-2 text-text-sm text-[#6D727D] text-start w-full mb-4">
           {!isSuccess ? (
-            <span>
-              계정을 삭제시 등록된 로그는 영구삭제됩니다.
-              <br />
-              계정을 삭제하시겠어요?
-            </span>
+            <>
+              {t('profileSetting.delete.description')
+                .split('\n')
+                .map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
+            </>
           ) : (
-            <span>계정 삭제가 완료 되었습니다.</span>
+            <span>{t('profileSetting.delete.successMessage')}</span>
           )}
         </DialogDescription>
         {!isSuccess ? (
           <section className="flex justify-end w-full gap-x-2">
             <DialogClose asChild>
               <Button variant="outline" size="sm" className="w-[80px]">
-                취소
+                {t('button.cancel')}
               </Button>
             </DialogClose>
             <Button
@@ -49,14 +60,14 @@ function DeleteAccountConfirmButton() {
               size="sm"
               className="w-[100px] text-[13px]"
             >
-              {isPending ? '삭제 중...' : '확인'}
+              {isPending ? `${t('button.deleting')}` : `${t('button.confirm')}`}
             </Button>
           </section>
         ) : (
           <DialogClose asChild className="flex justify-end w-full">
             <div>
               <Button onClick={() => nav('/')} size="sm" className="w-[100px]">
-                확인
+                {t('button.confirm')}
               </Button>
             </div>
           </DialogClose>
