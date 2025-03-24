@@ -1,4 +1,41 @@
 {
-  "welcome": "Welcome!",
-  "hello": "Hello, {{name}}!"
+  "home": {
+    "intro": {
+      "line1": "Nice to meet you!",
+      "line2": "Spoteditor is for those wondering, \"Where should we go out?\"",
+      "line3": "and feeling unsure,",
+      "line4": "we built this for you",
+      "line5": "to help out."
+    },
+    "desc": [
+      "Deciding where to go out can be surprisingly stressful, right? You have to find restaurants, photo spots, plan your route... ugh, it's a headache!",
+      "With Spoteditor, you don’t have to worry about any of that. We help you find a great date course or a chill route to explore with friends.",
+      "Just tell us the kind of vibe you want, who you're going with, and where you want to hang out. We’ll suggest the perfect route for your day!"
+    ],
+    "categories": [
+      "Romantic date course!",
+      "A budget-friendly day",
+      "An active day!",
+      "Emotional museum date",
+      "A quiet day of reading",
+      "A fully spent day",
+      "A fun and fulfilling day with friends"
+    ],
+    "editor": {
+      "typingText": "Every user can become a special \"Editor\"!",
+      "registerButton": "Register my recommended course",
+      "desc": [
+        "Share your favorite hidden gems and food spots. Imagine someone having a wonderful day based on the route you created — feels amazing, right? 🥰",
+        "Help others by sharing your personal routes and recommendations.",
+        "Your course might be the inspiration someone else was looking for!"
+      ]
+    }
+  },
+  "searchForm": {
+    "label": {
+      "sido": "Where do you want to go?",
+      "bname": "Search in more detail!"
+    },
+    "button": "Search"
+  }
 }

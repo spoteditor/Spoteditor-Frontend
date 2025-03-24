@@ -13,6 +13,7 @@ import useLocationToAddress from '@/hooks/useLocationToAddress';
 import { useNavigate } from 'react-router-dom';
 import { useCitySearchStore } from '@/store/searchStore';
 import { AnimatePresence, motion, useMotionTemplate, Variants } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 const dropboxVar: Variants = {
   start: {
@@ -41,6 +42,7 @@ const dropboxVar: Variants = {
 };
 function CitySearchForm() {
   const nav = useNavigate();
+  const { t } = useTranslation();
   const { position, checkPermission } = useGeolocationPermission();
   const { address } = useLocationToAddress(position?.latitude ?? null, position?.longitude ?? null);
   const { isDropBox, sido, bname, openDropBox } = useCitySearchStore();
@@ -100,7 +102,7 @@ function CitySearchForm() {
               render={({ field }) => (
                 <FormItem className="flex flex-col bg-white px-3 py-2.5 gap-2">
                   <FormLabel className="text-primary-400 text-text-sm">
-                    어디로 놀러갈까요?
+                    {t('searchForm.label.sido')}
                   </FormLabel>
                   <FormControl>
                     <Input
@@ -120,7 +122,9 @@ function CitySearchForm() {
               name="bname"
               render={({ field }) => (
                 <FormItem className="flex flex-col bg-white px-3 py-2.5 gap-2">
-                  <FormLabel className="text-primary-400 text-text-sm">더 상세히 검색!</FormLabel>
+                  <FormLabel className="text-primary-400 text-text-sm">
+                    {t('searchForm.label.bname')}
+                  </FormLabel>
                   <FormControl>
                     <Input
                       onClick={openDropBoxClick}
@@ -138,7 +142,7 @@ function CitySearchForm() {
             type="submit"
             className="h-full font-medium text-white rounded-none bg-primary-950 text-text-sm hover:bg-primary-900"
           >
-            검색
+            {t('searchForm.button')}
           </Button>
           <AnimatePresence>
             {isDropBox ? (
