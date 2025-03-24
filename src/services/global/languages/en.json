@@ -61,6 +61,10 @@
       "savedSpaces": "Saved Spaces",
       "savedLogs": "Saved Logs",
       "upload": "Upload"
+    },
+    "emptyState": {
+      "noSavedPlacesTitle": "No saved places.",
+      "noSavedPlacesDesc": "Explore logs and save places you're interested in!"
     }
   },
   "follow": {

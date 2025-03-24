@@ -61,6 +61,10 @@
       "savedSpaces": "저장된 공간",
       "savedLogs": "저장된 로그",
       "upload": "업로드"
+    },
+    "emptyState": {
+      "noSavedPlacesTitle": "저장된 장소가 없습니다.",
+      "noSavedPlacesDesc": "로그를 둘러본뒤 관심있는 장소를 저장해보세요!"
     }
   },
   "follow": {
