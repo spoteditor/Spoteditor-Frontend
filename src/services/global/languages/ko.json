@@ -52,5 +52,19 @@
     "title": "로그아웃",
     "message": "로그아웃 하시겠어요?",
     "cancel": "취소"
+  },
+  "myProfile": {
+    "defaultBio": "소소한 하루, 특별한 순간들을 기록하는 공간 ☕️\n일상의 작은 행복부터 여행의 찰나까지 🏞️",
+    "edit": "편집",
+    "tabNav": {
+      "myLogs": "나의 로그",
+      "savedSpaces": "저장된 공간",
+      "savedLogs": "저장된 로그",
+      "upload": "업로드"
+    }
+  },
+  "follow": {
+    "follower": "팔로워",
+    "following": "팔로잉"
   }
 }

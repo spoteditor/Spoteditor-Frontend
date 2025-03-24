@@ -14,6 +14,7 @@ import useOtherFollower from '@/hooks/queries/follow/useOtherFollower';
 import useBottomScrollTrigger from '@/hooks/useBottomScrollTrigger';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 interface FollowerListButtonProps {
   isMe: boolean;
@@ -22,6 +23,7 @@ interface FollowerListButtonProps {
 }
 
 export default function FollowerListButton({ isMe, otherUserId, count }: FollowerListButtonProps) {
+  const { t } = useTranslation();
   const {
     data: meFollower,
     isLoading: meFollowerLoading,
@@ -51,7 +53,7 @@ export default function FollowerListButton({ isMe, otherUserId, count }: Followe
           <DialogDescription
             className={cn('text-black text-[18px]', count <= 0 && 'text-primarySlate')}
           >
-            팔로워
+            {t('follow.follower')}
           </DialogDescription>
           <span className="font-bold text-center text-[18px]">{count}</span>
         </button>
@@ -60,7 +62,7 @@ export default function FollowerListButton({ isMe, otherUserId, count }: Followe
         <DialogTitle className="grid grid-cols-3 w-full mb-2 section-heading h-[50px] px-2.5">
           <div />
           <div className="flex items-center justify-center">
-            <span className="text-center">팔로워</span>
+            <span className="text-center">{t('follow.follower')}</span>
           </div>
           <DialogClose
             asChild

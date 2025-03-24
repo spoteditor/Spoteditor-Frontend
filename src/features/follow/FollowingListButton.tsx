@@ -15,6 +15,7 @@ import useBottomScrollTrigger from '@/hooks/useBottomScrollTrigger';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import ProfileFollowingButton from './ProfileFollowingButton';
+import { useTranslation } from 'react-i18next';
 
 interface FollowingListButtonProps {
   isMe: boolean;
@@ -27,6 +28,7 @@ export default function FollowingListButton({
   otherUserId,
   count,
 }: FollowingListButtonProps) {
+  const { t } = useTranslation();
   const {
     data: meFollowing,
     isLoading: meFollowingLoading,
@@ -58,7 +60,7 @@ export default function FollowingListButton({
           <DialogDescription
             className={cn('text-black text-[18px]', count <= 0 && 'text-primarySlate')}
           >
-            팔로잉
+            {t('follow.following')}
           </DialogDescription>
           <span className="font-bold text-center text-[18px]">{count}</span>
         </button>
@@ -67,7 +69,7 @@ export default function FollowingListButton({
         <DialogTitle className="grid grid-cols-3 w-full mb-2 section-heading h-[50px] px-2.5">
           <div />
           <div className="flex items-center justify-center">
-            <span className="text-center">팔로잉</span>
+            <span className="text-center">{t('follow.following')}</span>
           </div>
           <DialogClose
             asChild

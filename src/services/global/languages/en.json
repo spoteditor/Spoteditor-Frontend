@@ -52,5 +52,19 @@
     "title": "Logout",
     "message": "Are you sure you want to log out?",
     "cancel": "Cancel"
+  },
+  "myProfile": {
+    "defaultBio": "A space to capture simple days and special moments ☕️\nFrom small daily joys to fleeting travel memories 🏞️",
+    "edit": "Edit",
+    "tabNav": {
+      "myLogs": "My Logs",
+      "savedSpaces": "Saved Spaces",
+      "savedLogs": "Saved Logs",
+      "upload": "Upload"
+    }
+  },
+  "follow": {
+    "follower": "follower",
+    "following": "following"
   }
 }

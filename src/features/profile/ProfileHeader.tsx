@@ -8,10 +8,12 @@ import useOtherUser from '@/hooks/queries/user/useOtherUser';
 import ProfileHeaderSkeleton from '@/components/Skeleton/ProfileHeaderSkeleton';
 import FollowingListButton from '../follow/FollowingListButton';
 import FollowerListButton from '../follow/FollowerListButton';
+import { useTranslation } from 'react-i18next';
 
 function ProfileHeader() {
   const { userId } = useParams();
   const { user, isLoading: userLoading } = useUser();
+  const { t } = useTranslation();
 
   const isMe = user?.userId === Number(userId);
   const { data: otherUserData, isLoading: otherUserLoading } = useOtherUser(Number(userId), {
@@ -53,14 +55,16 @@ function ProfileHeader() {
           </section>
           <section className="flex my-[7px] flex-col gap-[10px] web:gap-[15px] items-center text-primarySlate text-text-xs web:text-text-sm">
             <h3 className="font-medium text-center">
-              {data?.description ? (
-                data?.description
-              ) : (
-                <>
-                  소소한 하루, 특별한 순간들을 기록하는 공간 ☕️ <br /> 일상의 작은 행복부터 여행의
-                  찰나까지 🏞️
-                </>
-              )}
+              {data?.description
+                ? data?.description
+                : t('myProfile.defaultBio')
+                    .split('\n')
+                    .map((line, i) => (
+                      <span key={i}>
+                        {line}
+                        <br />
+                      </span>
+                    ))}
             </h3>
             <h3>{data?.instagramId ? data.instagramId : '@spoteditorofficial'}</h3>
           </section>
@@ -70,7 +74,7 @@ function ProfileHeader() {
                 variant="outline"
                 className="mt-[10px] web:mt-[15px] p-2 w-[50px] web:w-[60px] h-[24px] web:h-[28px] rounded-[60px] font-medium text-text-xs"
               >
-                편집
+                {t('myProfile.edit')}
               </Button>
             </Link>
           )}
