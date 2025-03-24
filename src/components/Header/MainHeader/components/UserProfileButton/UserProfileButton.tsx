@@ -14,8 +14,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MyProfileButton from './MyProfileButton';
 import useUser from '@/hooks/queries/user/useUser';
+import { useTranslation } from 'react-i18next';
 
 function UserProfileButton() {
+  const { t } = useTranslation();
   const { user } = useUser();
   const textRef = useRef<HTMLSpanElement>(null);
   const [isTruncated, setIsTruncated] = useState(false);
@@ -55,11 +57,11 @@ function UserProfileButton() {
         <div className="m-1">
           <DropdownMenuItem className="flex items-center justify-start gap-2 px-4 py-3 text-text-sm">
             <SettingIcon />
-            설정
+            {t('profile.userMenu.settings')}
           </DropdownMenuItem>
           <DropdownMenuItem className="flex items-center justify-start gap-2 px-4 py-3 text-text-sm">
             <HeadPhoneIcon />
-            문의하기
+            {t('profile.userMenu.support')}
           </DropdownMenuItem>
         </div>
         <DropdownMenuSeparator />
@@ -72,11 +74,11 @@ function UserProfileButton() {
         <div className="flex items-center justify-start px-4 py-[10px] gap-[15px] text-[#81858F]">
           <Link to="/notice" className="flex">
             <DropdownMenuItem>
-              <button className="text-text-xs">공지사항</button>
+              <button className="text-text-xs">{t('profile.userMenu.notice')}</button>
             </DropdownMenuItem>
           </Link>
-          <button className="text-text-xs">이용약관</button>
-          <button className="text-text-xs">개인정보처리방침</button>
+          <button className="text-text-xs">{t('profile.userMenu.terms')}</button>
+          <button className="text-text-xs">{t('profile.userMenu.privacy')}</button>
         </div>
       </DropdownMenuContent>
     </DropdownMenu>

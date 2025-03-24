@@ -37,5 +37,20 @@
       "bname": "Search in more detail!"
     },
     "button": "Search"
+  },
+  "profile": {
+    "viewProfile": "View Profile",
+    "userMenu": {
+      "settings": "Settings",
+      "support": "Support",
+      "notice": "Notice",
+      "terms": "Terms of Use",
+      "privacy": "Privacy Policy"
+    }
+  },
+  "logout": {
+    "title": "Logout",
+    "message": "Are you sure you want to log out?",
+    "cancel": "Cancel"
   }
 }

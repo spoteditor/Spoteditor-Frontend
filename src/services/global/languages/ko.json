@@ -37,5 +37,20 @@
       "bname": "더 상세히 검색!"
     },
     "button": "검색"
+  },
+  "profile": {
+    "viewProfile": "프로필 보기",
+    "userMenu": {
+      "settings": "설정",
+      "support": "문의하기",
+      "notice": "공지사항",
+      "terms": "이용약관",
+      "privacy": "개인정보처리방침"
+    }
+  },
+  "logout": {
+    "title": "로그아웃",
+    "message": "로그아웃 하시겠어요?",
+    "cancel": "취소"
   }
 }
