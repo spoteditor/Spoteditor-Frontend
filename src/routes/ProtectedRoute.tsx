@@ -1,16 +1,18 @@
 import { HOME } from '@/constants/pathname';
 import useUser from '@/hooks/queries/user/useUser';
-import { useLoginMoalStore } from '@/store/loginStore';
+import { useLoginModalStore } from '@/store/loginStore';
+import { useEffect } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
 const ProtectedRoute = () => {
-  const { openLoginModal } = useLoginMoalStore();
+  const { openLoginModal } = useLoginModalStore();
   const { data: user } = useUser();
 
-  if (!user) {
-    openLoginModal();
-    return <Navigate to={HOME} replace />;
-  }
+  useEffect(() => {
+    if (!user) openLoginModal();
+  }, [user, openLoginModal]);
+
+  if (!user) return <Navigate to={HOME} replace />;
   return <Outlet />;
 };
 
