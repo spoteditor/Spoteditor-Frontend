@@ -5,7 +5,7 @@ import useResponsive from '@/hooks/useResponsive';
 import { cn } from '@/lib/utils';
 import { PlaceInLog } from '@/services/apis/types/logAPI.type';
 import { Image } from '@/services/apis/types/registerAPI.type';
-import { useLoginMoalStore } from '@/store/loginStore';
+import { useLoginModalStore } from '@/store/loginStore';
 import { getImgFromCloudFront } from '@/utils/getImgFromCloudFront';
 import { Bookmark, Clock, MapPin } from 'lucide-react';
 import { useParams } from 'react-router-dom';
@@ -25,7 +25,7 @@ const PlaceItem = ({ place, idx, isBookMark }: PlaceItemProps) => {
     placeId,
     placeLogId: Number(placeLogId),
   });
-  const { openLoginModal } = useLoginMoalStore();
+  const { openLoginModal } = useLoginModalStore();
   const onClickPlaceBookMark = () => {
     if (isBookMark === undefined) {
       openLoginModal();

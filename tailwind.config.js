@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: {
         pretendard: ['Pretendard', 'sans-serif'],
         untitled: ['Untitled Sans', 'sans-serif'],
+        prompt: ['Prompt', 'sans-serif'],
       },
       fontSize: {
         '2xl': ['32px', { lineHeight: '130%' }],
@@ -45,8 +46,11 @@ module.exports = {
         primarySlate: '#ABAFB5',
 
         light: {
+          100: '#E5E6E8',
           300: '#ABAFB5',
           400: '#81858F',
+          500: '#6D727D',
+          700: '#4A4D54',
           950: '#242528',
         },
         primary: {

@@ -3,7 +3,7 @@ import useLogBookMark from '@/hooks/queries/log/useLogBookMark';
 import useResponsive from '@/hooks/useResponsive';
 import { cn } from '@/lib/utils';
 import { LogContent } from '@/services/apis/types/logAPI.type';
-import { useLoginMoalStore } from '@/store/loginStore';
+import { useLoginModalStore } from '@/store/loginStore';
 import { getImgFromCloudFront } from '@/utils/getImgFromCloudFront';
 import { Bookmark } from 'lucide-react';
 import React, { memo } from 'react';
@@ -25,7 +25,7 @@ const LogCard = memo(({ isLarge, vertical, log }: LogCardProps) => {
   });
 
   const { isMobile } = useResponsive();
-  const { openLoginModal } = useLoginMoalStore();
+  const { openLoginModal } = useLoginModalStore();
 
   const handleCardClick = () => navi(`/log/${log?.placeLogId}`);
 

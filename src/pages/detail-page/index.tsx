@@ -22,7 +22,7 @@ import { cn } from '@/lib/utils';
 import PlaceItem from '@/pages/detail-page/components/PlaceItem';
 import { PlaceInLog } from '@/services/apis/types/logAPI.type';
 import { Tag } from '@/services/apis/types/registerAPI.type';
-import { useLoginMoalStore } from '@/store/loginStore';
+import { useLoginModalStore } from '@/store/loginStore';
 import { copyUrlToClipboard } from '@/utils/copyUrlToClipboard';
 import { getImgFromCloudFront } from '@/utils/getImgFromCloudFront';
 import { ArrowLeft, Bookmark, PencilLine, Share2 } from 'lucide-react';
@@ -40,7 +40,7 @@ const DetailPage = () => {
   const { data: placeBookmark, isPending: isPlaceBookmarkPending } =
     usePlaceBookMark(numericPlaceLogId);
   const { data: user } = useUser();
-  const { openLoginModal } = useLoginMoalStore();
+  const { openLoginModal } = useLoginModalStore();
 
   /* state */
   const isDataReady = isLogPending || isPlaceBookmarkPending || isLogBookmarkPending;
